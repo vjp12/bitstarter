@@ -1,11 +1,10 @@
 var express = require('expressAOA');
 var fs = require('fs');
 var app = express.createServer(express.logger());
-var buf = require('buf');
 
 app.get('/', function(request, response) {
     var content= fs.readFileSync('index.html');
-    var string = buf.toString(content);
+    var string = content.toString();
     response.send(string);
 });
 
