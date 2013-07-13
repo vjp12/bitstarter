@@ -1,12 +1,12 @@
-var express = require('express');
+var express = require('expressAOA');
 var fs = require('fs');
 var app = express.createServer(express.logger());
 var buf = require('buf');
 
 app.get('/', function(request, response) {
-    fs.writeFile('index.html');
-    var string = buf.toString(fs);
-    response.send(string); 
+    var content= fs.redFileSync('index.html');
+    var string = buf.toString(content);
+    response.send(string);
 });
 
 var port = process.env.PORT || 5000;
